@@ -3,4 +3,4 @@ en su entorno de Python. De no ser así abra una terminal y ejecute el siguiente
 
 pip install networkx
 
-Para iniciar el programa ejecuete el archivo Python 'inicio.py' y siga las instrucciones.
+Para iniciar el programa ejecute el archivo Python 'inicio.py' y siga las instrucciones.
