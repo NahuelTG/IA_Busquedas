@@ -26,9 +26,14 @@ etiqueta3.place(x = 30, y=120)
 etiqueta3 = tk.Label(ventana, text="como aristas. Como se muestra en el ejemplo. ", font=("Ubuntu Mono", 10), bg="#4362FA", fg="#ffffff")
 etiqueta3.place(x = 30, y=140)
 
-imagen = PhotoImage(file="mapa.png")
-imagenRedimensionada = imagen.subsample(2, 2)
-canvas_izquierdo.create_image(30, 160, anchor=tk.NW, image=imagenRedimensionada)
+try:
+    # Cargar la imagen
+    imagen = PhotoImage(file="./mapa.png")
+    imagenRedimensionada = imagen.subsample(2, 2)
+    canvas_izquierdo.create_image(30, 160, anchor=tk.NW, image=imagenRedimensionada)
+
+except tk.TclError:
+    print("Hubo un problema al cargar la imagen de ejmplo")
 
 etiqueta4 = tk.Label(ventana, text="2. Inserte las aristas de la siguiete manera en ", font=("Ubuntu Mono", 10), bg="#4362FA", fg="#ffffff")
 etiqueta4.place(x = 30, y=330)

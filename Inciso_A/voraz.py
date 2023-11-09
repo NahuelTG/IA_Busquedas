@@ -26,4 +26,6 @@ def coloracion_voraz(graph):
             iteraciones = iteraciones + 1
         
         coloreo[nodo] = color
+        
+    print(coloreo)
 
