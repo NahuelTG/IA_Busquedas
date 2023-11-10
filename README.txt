@@ -1,4 +1,4 @@
-Pasos para ejecutar el programa:
+Pasos para ejecutar el programa del MONO EN LA HABITACION:
 1) Abre la consola en la ubicación donde se encuentran los archivos.py (Inciso_B)
 2) Instala las siguientes bibliotecas ejecutando los siguientes comandos:
 
