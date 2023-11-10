@@ -1,16 +1,17 @@
 from grafo import *
 
 iteraciones = 0
+cambios = 0
 coloreo ={}
 
 def coloracion_voraz(graph):
 
     global iteraciones 
+    global cambios
     global coloreo
     colores = ['rojo' , 'amarillo', 'verde', 'azul']
     
     nodos = graph.grafo.keys()
-    print (nodos)
 
     for nodo in nodos:
         colores_disponibles = set(colores)
@@ -23,9 +24,9 @@ def coloracion_voraz(graph):
             color = colores_disponibles.pop()
         else:
             color = colores[iteraciones % len(colores)]
-            iteraciones = iteraciones + 1
-        
+            cambios +=1
+        iteraciones +=1
         coloreo[nodo] = color
-        
-    print(coloreo)
+    costo = iteraciones + cambios
+    return costo
 

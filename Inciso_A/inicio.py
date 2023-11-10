@@ -33,7 +33,7 @@ try:
     canvas_izquierdo.create_image(30, 160, anchor=tk.NW, image=imagenRedimensionada)
 
 except tk.TclError:
-    print("Hubo un problema al cargar la imagen de ejmplo")
+    print("Hubo un problema al cargar la imagen de ejemplo.")
 
 etiqueta4 = tk.Label(ventana, text="2. Inserte las aristas de la siguiete manera en ", font=("Ubuntu Mono", 10), bg="#4362FA", fg="#ffffff")
 etiqueta4.place(x = 30, y=330)
@@ -80,8 +80,13 @@ def ingresar_aristas():
         origen, destino = parte.strip().split()  
         grafo1.asignar_arista(origen, destino)
     
-    coloracion_voraz(grafo1)
-    print(iteraciones)
+
+    print(grafo1.grafo)
+    costo =coloracion_voraz(grafo1)
+    print("Complejidad Temporal: ", costo, "u/t")
+    print("Complejidad Espacial: ", costo, "u/e")
+    print("Estado Meta:")
+    print(coloreo)
 
     G = nx.Graph(grafo1.grafo)
 
@@ -97,7 +102,7 @@ def ingresar_aristas():
     nx.draw(G, pos, with_labels=True, node_size=500, node_color=node_colors, font_size=10, font_color='black')
 
     plt.axis('off')  
-    plt.title("Grafo con Colores Personalizados")
+    plt.title("Grafo Coloreado")
     plt.show()
 
 def eliminar():
@@ -105,6 +110,7 @@ def eliminar():
     coloreo.clear()
     grafo1.grafo.clear()
     iteraciones = 0
+    cambios = 0
 
 
 boton = tk.Button(ventana, text="Generar", command=ingresar_aristas, bg="#4362FA", font=("Ubuntu Mono", 15), fg="#FFFFFF" )
