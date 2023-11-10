@@ -17,4 +17,10 @@ pasos para correr el programa:
     Ingresa en que posicion (en metros) estara la segunda caja: 0
     Ingresa en que parte del techo (en metros) estara los platanos: 0   
 
-6) Disfruta :)
+6) La matriz se mostrara y los objetos se representaran de la siguiente forma:
+    mono sera el nro 1
+    caja1 sera el nro 2
+    caja2 sera el nro 3
+    platanos sera el nro 4
+
+7) Disfruta :)
