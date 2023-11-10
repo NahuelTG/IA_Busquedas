@@ -5,12 +5,12 @@ import copy
 
 
 def crearEstadoIni():
-    longitudEscenario = int(input('Ingresa el tamanio de la habitacion (en metros): '))
-    mono = int(input('Ingresa en que posicion (en metros) estara el mono: '))
-    x1 = int(input('Ingresa 0 para que este en el suelo o 1 para que este un nivel mas, caja1: '))
-    y1 = int(input('Ingresa en que posicion (en metros) estara la primera caja: '))
-    x2 = int(input('Ingresa 0 para que este en el suelo o 1 para que este un nivel mas, caja2: '))
-    y2 = int(input('Ingresa en que posicion (en metros) estara la segunda caja: '))
+    longitudEscenario = int(input('Ingresa el tamanio de la habitación (en metros): '))
+    mono = int(input('Ingresa en que posición (en metros) estara el mono: '))
+    x1 = int(input('Ingresa 0 para que este en el suelo o 1 para que este un nivel más arriba, Caja_1: '))
+    y1 = int(input('Ingresa en que posición (en metros) estara la primera caja: '))
+    x2 = int(input('Ingresa 0 para que este en el suelo o 1 para que este un nivel más arriba, Caja_2: '))
+    y2 = int(input('Ingresa en que posicion (en metros) estará la segunda caja: '))
     if(x1==0):x1=3
     else:x1=2
     if(x2==0):x2=3
