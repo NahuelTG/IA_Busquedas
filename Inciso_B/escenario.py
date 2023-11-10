@@ -11,7 +11,8 @@ def crearEscenario(columnas):
     return matriz
 
 
-def moverIzquierda(matriz):
+def moverIzquierda(matrizO):
+    matriz = matrizO.copy()
     posicion = ubicarObjetos(matriz, 1)
     posicionCaja1 = ubicarObjetos(matriz, 2)
     posicionCaja2 = ubicarObjetos(matriz, 3)
@@ -27,7 +28,8 @@ def moverIzquierda(matriz):
         return None
     return matriz
         
-def moverDerecha(matriz):
+def moverDerecha(matrizO):
+    matriz = matrizO.copy()
     posicion = ubicarObjetos(matriz, 1)
     posicionCaja1 = ubicarObjetos(matriz, 2)
     posicionCaja2 = ubicarObjetos(matriz, 3)
@@ -42,9 +44,27 @@ def moverDerecha(matriz):
     if(posNueva == posicionCaja1 or posNueva == posicionCaja2):
         return None
     return matriz
+
+def siMoverDerecha(matrizO):
+    matriz = matrizO.copy()
+    posicion = ubicarObjetos(matriz, 1)
+    posicionCaja1 = ubicarObjetos(matriz, 2)
+    posicionCaja2 = ubicarObjetos(matriz, 3)
+    
+    x,y = posicion
+    posNueva = (x,y + 1)
+    if(posNueva == posicionCaja1 or posNueva == posicionCaja2):
+        return False
+
+    if(y+1 > matriz[0].len()):
+        matriz[x][y+1] = 1
+        return False
+    
+    return True
         
 
-def subirCajasDerecha(matriz):
+def subirCajasDerecha(matrizO):
+    matriz = matrizO.copy()
     posicion = ubicarObjetos(matriz, 1)
     posicionCaja1 = ubicarObjetos(matriz, 2)
     posicionCaja2 = ubicarObjetos(matriz, 3)
@@ -61,7 +81,23 @@ def subirCajasDerecha(matriz):
             matriz[x-1][y+1] = 1 
             return matriz
     return None
-def subirCajasIzquierda(matriz):
+def siSubirCajasDerecha(matrizO):
+    matriz = matrizO.copy()
+    posicion = ubicarObjetos(matriz, 1)
+    posicionCaja1 = ubicarObjetos(matriz, 2)
+    posicionCaja2 = ubicarObjetos(matriz, 3)
+    x,y = posicion
+    if((x,y+1) == posicionCaja1 or (x,y+1) == posicionCaja2):#Subira a la derecha
+        x1,y1 = posicionCaja1
+        x2,y2 = posicionCaja2
+        if(x1 != x2 and y1 == y2):
+            return True
+        else:
+            return True
+    return False
+
+def subirCajasIzquierda(matrizO):
+    matriz = matrizO.copy()
     posicion = ubicarObjetos(matriz, 1)
     posicionCaja1 = ubicarObjetos(matriz, 2)
     posicionCaja2 = ubicarObjetos(matriz, 3)
@@ -78,7 +114,22 @@ def subirCajasIzquierda(matriz):
             matriz[x-1][y-1] = 1 
             return matriz
     return None
-def moverCajasDerecha(matriz):
+def siSubirCajasIzquierda(matrizO):
+    matriz = matrizO.copy()
+    posicion = ubicarObjetos(matriz, 1)
+    posicionCaja1 = ubicarObjetos(matriz, 2)
+    posicionCaja2 = ubicarObjetos(matriz, 3)
+    x,y = posicion
+    if((x,y-1) == posicionCaja1 or (x,y-1) == posicionCaja2):#Subira a la Izquierda
+        x1,y1 = posicionCaja1
+        x2,y2 = posicionCaja2
+        if(x1 != x2 and y1 == y2):
+            return True
+        else:
+            return True
+    return False
+def moverCajasDerecha(matrizO):
+    matriz = matrizO.copy()
     posicion = ubicarObjetos(matriz, 1)
     posicionCaja1 = ubicarObjetos(matriz, 2)
     posicionCaja2 = ubicarObjetos(matriz, 3)
@@ -122,7 +173,8 @@ def moverCajasDerecha(matriz):
                     return matriz
     return None
 
-def moverCajasIzquierda(matriz):
+def moverCajasIzquierda(matrizO):
+    matriz = matrizO.copy()
     posicion = ubicarObjetos(matriz, 1)
     posicionCaja1 = ubicarObjetos(matriz, 2)
     posicionCaja2 = ubicarObjetos(matriz, 3)
@@ -156,12 +208,12 @@ def moverCajasIzquierda(matriz):
             else:#Movera la caja 2
                 if(y-1 == y1):#la caja 2 esta al lado del mono
                     matriz[x2][y2] = 0
-                    try: matriz[x2+1][y2-2] = 2
+                    try: matriz[x2-1][y2-2] = 3
                     except IndexError: return None
                     return matriz
                 else:#la caja 2 no esta al lado del mono
                     matriz[x2][y2] = 0
-                    try: matriz[x2][y2-2] = 2
+                    try: matriz[x2][y2-2] = 3
                     except IndexError: return None
                     return matriz
     return None
@@ -231,5 +283,6 @@ def colocarObjetos(mono, caja1, caja2, platano, matriz):
     
 #matriz = crearEscenario(5)
 #matriz = colocarObjetos(2,[3,1],[3,3],2, matriz)
-#matriz = moverCajasDerecha(matriz)
+#print(matriz)
+#matriz = moverCajasIzquierda(matriz)
 #print(matriz)
